@@ -1,5 +1,10 @@
 class StringCalculator {
+    constructor() {
+      this.callCount = 0;
+    }
+
     add(numbers) {
+      this.callCount++;
       if (numbers === "") return 0;
 
       let delimiter = /[\n,]/; // Default delimiters
@@ -16,6 +21,10 @@ class StringCalculator {
       }
 
       return numbersArray.filter(num => num <= 1000).reduce((sum, num) => sum + num, 0);
+    }
+
+    getCalledCount() {
+      return this.callCount;
     }
   }
   

@@ -35,3 +35,10 @@ test('Single number returns that number', () => {
     const calc = new StringCalculator();
     expect(() => calc.add("1,-2,-3")).toThrow("negative numbers not allowed -2,-3");
   });
+
+  test('Count the number of times Add() is called', () => {
+    const calc = new StringCalculator();
+    calc.add("1,2");
+    calc.add("3");
+    expect(calc.getCalledCount()).toBe(2);
+  });
