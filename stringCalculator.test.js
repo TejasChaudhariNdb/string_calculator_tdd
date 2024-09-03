@@ -26,3 +26,12 @@ test('Single number returns that number', () => {
     expect(calc.add("//;\n1;2")).toBe(3);
   });
 
+  test('Throws error for negative numbers', () => {
+    const calc = new StringCalculator();
+    expect(() => calc.add("1,-2")).toThrow("negative numbers not allowed -2");
+  });
+
+  test('Throws error for multiple negative numbers', () => {
+    const calc = new StringCalculator();
+    expect(() => calc.add("1,-2,-3")).toThrow("negative numbers not allowed -2,-3");
+  });

@@ -10,7 +10,12 @@ class StringCalculator {
       }
 
       const numbersArray = numbers.split(delimiter).map(Number);
-      return numbersArray.reduce((sum, num) => sum + num, 0);
+      const negatives = numbersArray.filter(num => num < 0);
+      if (negatives.length > 0) {
+        throw new Error(`negative numbers not allowed ${negatives.join(',')}`);
+      }
+
+      return numbersArray.filter(num => num <= 1000).reduce((sum, num) => sum + num, 0);
     }
   }
   
